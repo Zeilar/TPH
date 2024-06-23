@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\{
     Admin\StatisticsController,
-    ChatmessagesController,
+    ChatMessagesController,
     Admin\UsersController,
     CategoriesController,
     ProfilesController,
@@ -47,8 +47,8 @@ Route::resource('posts', PostsController::class, ['except' => ['create', 'edit',
 Route::put('/posts/{post}/like', [PostsController::class, 'like']);
 Route::post('posts/{post}', [PostsController::class, 'update']);
 
-// ChatmessagesController
-Route::resource('chatmessages', ChatmessagesController::class, ['except' => ['create', 'edit', 'show']]);
+// ChatMessagesController
+Route::resource('chatmessages', ChatMessagesController::class, ['except' => ['create', 'edit', 'show']]);
 
 // Admin -> ...Controller
 Route::prefix('admin')->middleware('IsAdmin')->group(function() {

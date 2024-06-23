@@ -164,8 +164,8 @@ export default function Users() {
                         render={(fields, updateField) => {
                             return (
                                 <>
-                                    <CrudField field={fields.find(field => field.title === 'Username')} updateField={updateField} autoFocus={true} />
-                                    <CrudField field={fields.find(field => field.title === 'Email')} updateField={updateField} autoComplete="off" />
+                                    <CrudField field={fields.find(field => field.title === 'Username')} updateField={updateField} placeholder="JohnSmith" autoFocus={true} />
+                                    <CrudField field={fields.find(field => field.title === 'Email')} updateField={updateField} type="email" placeholder="user@example.net" autoComplete="off" />
                                     <CrudTags field={fields.find(field => field.title === 'Roles')} updateField={updateField} placeholder="member" />
                                     <CrudSuspend field={fields.find(field => field.title === 'Suspend')} updateField={updateField} />
                                 </>

@@ -13,7 +13,7 @@ class Post extends Model
     use HasFactory, Searchable;
     
     protected $dispatchesEvents = ['saved' => CreatedPost::class, 'deleted' => DeletedPost::class];
-    protected $with = ['user', 'postlikes'];
+    protected $with = ['user', 'postLikes'];
     protected $appends = ['pageNumber'];
     protected $guarded = [];
 
@@ -25,8 +25,8 @@ class Post extends Model
         return $this->belongsTo(Thread::class);
     }
 
-    public function postlikes() {
-        return $this->hasMany(Postlike::class);
+    public function postLikes() {
+        return $this->hasMany(PostLike::class);
     }
 
     public function getPageNumberAttribute(): int {

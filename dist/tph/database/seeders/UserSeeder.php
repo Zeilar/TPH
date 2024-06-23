@@ -19,8 +19,6 @@ class UserSeeder extends Seeder
     public function run()
     {
         $files = Storage::allFiles('public/avatars');
-        $superadminIcon = array_search('public/avatars/philip.png', $files);
-        if ($superadminIcon) unset($files[$superadminIcon]);
         Storage::delete($files);
 
         $superadminRole = Role::where('name', 'superadmin')->first();
@@ -33,7 +31,6 @@ class UserSeeder extends Seeder
             'password' => Hash::make(env('ADMIN_PASSWORD')),
         ]);
         $superadmin->roles()->syncWithoutDetaching([$superadminRole->id, $adminRole->id, $moderatorRole->id]);
-        $superadmin->settings()->attach(Setting::where('name', 'avatar')->first(), ['value' => 'philip.png']);
         
         $admin = User::create([
             'username' => 'Admin',

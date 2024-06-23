@@ -121,6 +121,10 @@ export default function Header() {
                                 to: { pathname: '/chat' },
                             },
                             {
+                                name: 'Settings',
+                                to: { pathname: '/settings' },
+                            },
+                            {
                                 name: 'Logout',
                                 to: {
                                     pathname: '/api/logout',

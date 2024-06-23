@@ -31,7 +31,7 @@ class User extends Authenticatable
     }
 
     public function postLikes() {
-        return $this->hasMany(Postlike::class);
+        return $this->hasMany(PostLike::class);
     }
 
     public function settings() {
@@ -39,7 +39,7 @@ class User extends Authenticatable
     }
 
     public function likedPosts() {
-        return Postlike::where('user_id', '!=', $this->id)
+        return PostLike::where('user_id', '!=', $this->id)
             ->whereIn('post_id', $this->posts()->select('id'))
             ->count();
     }
@@ -84,8 +84,8 @@ class User extends Authenticatable
         return false;
     }
 
-    public function chatmessages() {
-        return $this->hasMany(Chatmessage::class);
+    public function chatMessages() {
+        return $this->hasMany(ChatMessage::class);
     }
 
     public function suspensions() {

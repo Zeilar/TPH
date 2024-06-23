@@ -523,7 +523,7 @@ WebPRiffParser dominikhlbg@gmail.com
  * ====================================================================
  */
 
-/** @license React v0.20.1
+/** @license React v0.19.1
  * scheduler.production.min.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
@@ -541,7 +541,7 @@ WebPRiffParser dominikhlbg@gmail.com
  * LICENSE file in the root directory of this source tree.
  */
 
-/** @license React v17.0.1
+/** @license React v16.14.0
  * react-dom-server.browser.production.min.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
@@ -550,7 +550,7 @@ WebPRiffParser dominikhlbg@gmail.com
  * LICENSE file in the root directory of this source tree.
  */
 
-/** @license React v17.0.1
+/** @license React v16.14.0
  * react-dom.production.min.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.

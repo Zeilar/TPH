@@ -3,7 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Console\Command;
+use Illuminate\Console\Command; 
 use Illuminate\Support\Str;
 use App\Models\Setting;
 use App\Models\User;
@@ -72,6 +72,7 @@ class FillAvatars extends Command
                 
                 $avatarSetting = Setting::where('name', 'avatar')->first();
                 $user->settings()->attach($avatarSetting, ['value' => $name]);
+                $this->line("\n<fg=green>Installed $picture for $user->username</>");
             } catch (Exception $e) {
                 $successes -= 1;
                 $this->error("\n" . $e->getMessage());

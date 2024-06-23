@@ -2,6 +2,7 @@ import { NewThread, Category, Thread } from '../threads';
 import { FeedbackModalContext } from '../../contexts';
 import { ScrollToTop, FeedbackModal } from '../misc';
 import { Route, Switch } from 'react-router';
+import { Home, Chat, Settings } from './';
 import React, { useContext } from 'react';
 import { Register, Login } from '../auth';
 import { PostSingle } from '../layout';
@@ -10,7 +11,6 @@ import { Dashboard } from '../admin';
 import { Profile } from '../profile';
 import { HttpError } from '../http';
 import { Search } from '../search';
-import { Home, Chat } from './';
 
 export default function RouterPages() {
     const { type, message } = useContext(FeedbackModalContext);
@@ -27,6 +27,7 @@ export default function RouterPages() {
                 <Route component={Login} path="/login" exact />
                 <Route component={Register} path="/register" exact />
                 <Route component={Chat} path="/chat" exact />
+                <Route component={Settings} path="/settings" exact />
                 <Route component={Search} path="/search/:query?/:tab?/:page?" exact />
                 <AdminRoute component={Dashboard} path="/admin" />
                 <Route>

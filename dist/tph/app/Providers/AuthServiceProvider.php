@@ -3,9 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
-use Illuminate\Support\Facades\Gate;
 use App\Models\{
-    Chatmessage,
+    ChatMessage,
     Category,
     Thread,
     User,
@@ -21,7 +20,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        Chatmessage::class => \App\Policies\ChatmessagePolicy::class,
+        ChatMessage::class => \App\Policies\ChatMessagePolicy::class,
         Category::class    => \App\Policies\CategoryPolicy::class,
         Thread::class      => \App\Policies\ThreadPolicy::class,
         User::class        => \App\Policies\UserPolicy::class,

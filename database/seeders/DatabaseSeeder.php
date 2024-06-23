@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
             RankSeeder::class,
             RoleSeeder::class,
             UserSeeder::class,
-            ChatmessageSeeder::class,
+            ChatMessageSeeder::class,
             CategorySeeder::class,
         ]);
     }

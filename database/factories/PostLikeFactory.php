@@ -3,17 +3,17 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\Postlike;
+use App\Models\PostLike;
 use App\Models\Post;
 
-class PostlikeFactory extends Factory
+class PostLikeFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Postlike::class;
+    protected $model = PostLike::class;
 
     /**
      * Define the model's default state.

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Postlike;
+use App\Models\PostLike;
 use App\Models\Setting;
 use App\Models\Thread;
 use App\Models\Post;
@@ -81,7 +81,7 @@ class PostsController extends Controller
             $postLike->delete();
             return response(true);
         } else {
-            Postlike::create(['user_id' => $user->id, 'post_id' => $post->id]);
+            PostLike::create(['user_id' => $user->id, 'post_id' => $post->id]);
             return response(true);
         }
     }

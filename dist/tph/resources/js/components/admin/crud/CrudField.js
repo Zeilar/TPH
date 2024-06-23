@@ -26,7 +26,7 @@ export default function CrudField({ field = {}, updateField, ...props }) {
     return (
         <div className={classnames('col')}>
             <label className={classnames(classes.label, 'mb-2 caps bold')}>{field.title}</label>
-            <input className={classnames('input')} type={field.type ?? 'text'} value={field.value} onChange={onChangeHandler} {...props} />
+            <input className={classnames('input')} type={props.type ?? 'text'} value={field.value} onChange={onChangeHandler} {...props} />
         </div>
     );
 }

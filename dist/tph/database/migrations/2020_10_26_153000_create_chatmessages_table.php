@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateChatmessagesTable extends Migration
+class CreateChatMessagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateChatmessagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('chatmessages', function(Blueprint $table) {
+        Schema::create('chat_messages', function(Blueprint $table) {
             $table->id();
             $table->text('content');
             $table->unsignedBigInteger('user_id');

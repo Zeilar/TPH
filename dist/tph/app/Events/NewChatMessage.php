@@ -2,16 +2,14 @@
 
 namespace App\Events;
 
-use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
-use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcastNow;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
-use App\Models\Chatmessage;
+use App\Models\ChatMessage;
 
-class NewChatmessage implements ShouldBroadcastNow
+class NewChatMessage implements ShouldBroadcastNow
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -22,7 +20,7 @@ class NewChatmessage implements ShouldBroadcastNow
      *
      * @return void
      */
-    public function __construct(Chatmessage $message)
+    public function __construct(ChatMessage $message)
     {
         $this->message = $message;
     }

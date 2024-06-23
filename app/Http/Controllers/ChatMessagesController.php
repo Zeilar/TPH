@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Events\NewChatmessage;
 use Illuminate\Http\Request;
-use App\Models\Chatmessage;
+use App\Models\ChatMessage;
 use App\Models\User;
 
-class ChatmessagesController extends Controller
+class ChatMessagesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,11 +15,11 @@ class ChatmessagesController extends Controller
      */
     public function index()
     {
-        $this->authorize('viewAny', Chatmessage::class);
+        $this->authorize('viewAny', ChatMessage::class);
         if ($id = request()->query('profile', false)) {
             $profile = User::where('id', $id)->orWhere('username', $id)->firstOrFail();
             $user = auth()->user();
-            return Chatmessage::where(function($q) use ($profile, $user) {
+            return ChatMessage::where(function($q) use ($profile, $user) {
                 $q->where('receiver_id', $profile->id)->where('user_id', $user->id);
             })
             ->orWhere(function($q) use ($profile, $user) {
@@ -44,15 +43,15 @@ class ChatmessagesController extends Controller
     public function store(Request $request)
     {
         $receiver = User::where('id', $request->receiver)->orWhere('username', $request->receiver)->firstOrFail();
-        $this->authorize('create', [$receiver, Chatmessage::class]);
+        $this->authorize('create', [$receiver, ChatMessage::class]);
 
-        $message = Chatmessage::create([
+        $message = ChatMessage::create([
             'receiver_id' => $receiver->id,
             'user_id'     => auth()->user()->id,
             'content'     => $request->content,
         ]);
 
-        // broadcast(new NewChatmessage($message));
+        // broadcast(new NewChatMessage($message));
 
         return response(true);
     }
@@ -60,10 +59,10 @@ class ChatmessagesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Chatmessage  $chatmessage
+     * @param  \App\ChatMessage  $chatmessage
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Chatmessage $chatmessage)
+    public function destroy(ChatMessage $chatmessage)
     {
         $this->authorize('delete', $chatmessage);
     }

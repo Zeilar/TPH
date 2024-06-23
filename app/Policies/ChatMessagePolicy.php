@@ -3,11 +3,11 @@
 namespace App\Policies;
 
 use Illuminate\Auth\Access\HandlesAuthorization;
-use App\Models\Chatmessage;
+use App\Models\ChatMessage;
 use App\Models\User;
 use Auth;
 
-class ChatmessagePolicy
+class ChatMessagePolicy
 {
     use HandlesAuthorization;
 
@@ -41,10 +41,10 @@ class ChatmessagePolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\User  $user
-     * @param  \App\Chatmessage  $chatmessage
+     * @param  \App\ChatMessage  $chatmessage
      * @return mixed
      */
-    public function delete(User $user, Chatmessage $chatmessage)
+    public function delete(User $user, ChatMessage $chatmessage)
     {
         if ($user->suspended()) return false;
         return $user->getClearance() <= 2 || $user->lowerClearance($chatmessage->user);
